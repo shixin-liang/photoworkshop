@@ -454,12 +454,12 @@ body {
 }
 .table-column .t-est,
 .table-column .t-cet,
-.table-column .t-jet {
+.table-column .t-jst {
   display: none;
 }
 .cet .table-column .t-cet,
 .est .table-column .t-est,
-.jet .table-column .t-jet {
+.jst .table-column .t-jst {
   display: initial;
 }
 .table-column select {
