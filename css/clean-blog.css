@@ -442,7 +442,7 @@ body {
   text-transform: uppercase;
 }
 .table-column p {
-  font-size: smaller;
+  font-size: 18px;
   color: rgb(82, 81, 81);
   margin-top: 15px;
   margin-bottom: 20px;
