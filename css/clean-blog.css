@@ -497,3 +497,21 @@ body {
 .coffee-break h3{
   color:rgb(225 170 89) !important;
 }
+
+.day-1{
+background-color:#5f9ea0
+}
+
+.day-2{
+background-color:#5f7da0
+}
+
+.day-3{
+background-color:#605fa0
+}
+
+.day-1, .day-2, .day-3 {
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
