@@ -521,18 +521,45 @@ background-color:#605fa0
  */
 
 form.form-example {
-  display: table;
+  display: flex;
+  flex-direction: column;
 }
 
 div.form-example {
   display: table-row;
 }
 
-label, input {
+.form-example label, input {
   display: table-cell;
   margin-bottom: 10px;
+  
 }
+
+
+
+.checkbox label {
+  font-size: 16px;
+}
+
+
+
+
 
 label {
   padding-right: 10px;
+
 }
+
+.register input
+{
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  background-color: #25566a;
+}
+
+.form-example p{
+  font-size: smaller;
+}
+
+
