@@ -533,7 +533,7 @@ div.form-example {
   display: table-cell;
   margin-bottom: 10px;
   font-size: 18px;
-  
+  color:#474b4b
 }
 
 .form-example input{
@@ -542,12 +542,12 @@ div.form-example {
   border-style: solid;
   border-width: thin;
   border-color: rgb(169, 170, 170);
-  
 }
 
 .checkbox {
   display: flex;
-  gap: 15px;
+  gap: 30px;
+  color: #646868;
 }
 
 .checkbox label{
@@ -555,15 +555,11 @@ div.form-example {
 
 }
 
-label {
-  padding-right: 10px;
-
-}
 
 .register input
 {
   border: none;
-  padding: 5px 10px;
+  padding: 5px 15px;
   color: white;
   background-color: #25566a;
 }
