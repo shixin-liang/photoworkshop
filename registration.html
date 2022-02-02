@@ -99,28 +99,82 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <!-- <h1 class="section-heading">Programme</h1> -->                                      
-                     <form action="" method="get" class="form-example">
-                        <div class="form-example">
-                            <label for="firstname">First Name*  
-                            </label>
-                                <input type="text" firstname="firstname" id="firstname" required>
+                    <!-- <h1 class="section-heading">Programme</h1> -->
+                    <script>
+                        async function send (form, event) {
+                            event.preventDefault();
+
+                            const data = {
+                                firstname: form.elements.firstname.value.trim(), 
+                                lastname: form.elements.lastname.value.trim(),
+                                email: form.elements.email.value.trim().toLowerCase(),
+                                confirmemail: form.elements.confirmemail.value.trim().toLowerCase(),
+                                organization: form.elements.organization.value.trim()
+                            };
+                            if (data.firstname.length == 0 || data.lastname.length == 0) {
+                                alert('Please enter your name!')
+                                return false;
+                            }
+                            if (data.email != data.confirmemail) {
+                                alert('Please enter the same email address!')
+                                return false;
+                            }
+
+                            const dataToSend = {
+                                fields: {
+                                    firstname: data.firstname,
+                                    lastname: data.lastname,
+                                    email: data.email,
+                                    organization: data.organization,
+                                    date: (new Date).toString()
+                                }
+                            }
+
+                            const registerButton = form.elements.register
+                            registerButton.disabled = true
+                            registerButton.value = 'Submitting...'
+
+                            try {
+                                await fetch('https://photo-workshop-api.vercel.app/api/signup', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(dataToSend)
+                                })
+                            } catch (err) {
+                                form.elements.register.disabled = false
+                                registerButton.value = 'Register'
+                                alert('Failed to register because an error occurred, please try again!')
+                                return
+                            }
+
+                            registerButton.value = '🎉 Thank you for your registration! We will send you the workshop invite link later.'
+                            registerButton.className = 'success'
+
+                            return false
+                        }
+                    </script>
+                    <form method="post" class="registration" onsubmit="send(this, event)">
+                        <div>
+                            <label for="firstname">First Name*</label>
+                            <input type="text" name="firstname" id="firstname" required>
                         </div>
-                        <div class="form-example">
-                            <label for="name">Last Name* </label>
-                                <input type="text" lastname="lastname" id="lastname" required>
+                        <div>
+                            <label for="lastname">Last Name* </label>
+                            <input type="text" name="lastname" id="lastname" required>
                         </div>
-                        <div class="form-example">
+                        <div>
                             <label for="email">E-mail* </label>
-                                <input type="email" name="email" id="email" required>
+                            <input type="email" name="email" id="email" required>
                         </div>
-                        <div class="form-example">
+                        <div>
                             <label for="confirmemail">Confirm Email Address*</label>
-                                <input type="confirmemail" name="confirmemail" id="confirmemail" required>   
+                            <input type="email" name="confirmemail" id="confirmemail" required>   
                         </div>
-                        <div class="form-example">
-                            <label for="affiliation">Affiliation</label>
-                                <input type="affiliation" name="affiliation" id="affiliation" required>
+                        <div>
+                            <label for="organization">Organization</label>
+                            <input type="text" name="organization" id="organization">
                         </div>
                         <!--
                         <div class="form-example">
@@ -134,20 +188,14 @@
                            </div>
                         </div>
                         -->
-                    </form>
-                    <div class="checkbox">
-                        <p>
-                          <input type="checkbox" id="cbox1" value="first_checkbox">
-                          <label for="cbox1">By registration, I agree the terms and conditionsnot by Photo Workshop 2022, and agree not to share the Zoom password to others.</label>
-                        </p>
-                        </div> 
-                    <form action="" method="get" class="form-example">
-                       <div class="form-example">
-                        <div class="register">
-                             <input type="submit" value="Register">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="confirm" name="confirm" required />
+                            <label for="confirm" class="form-check-label">By registration, I agree to the terms and conditions of Photo Workshop 2022 and agree not to share the Zoom password with others.</label>
                         </div>
-                     </div>
-                    </form>             
+                        <div class="register">
+                            <input type="submit" name="register" value="Register">
+                        </div>
+                    </form>
                 </div>   
             </div>    
         </div>

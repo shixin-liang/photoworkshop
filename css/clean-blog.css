@@ -516,58 +516,70 @@ background-color:#605fa0
   border-radius: 5px;
 }
 
-/*!
- registration
- */
-
-form.form-example {
-  display: flex;
-  flex-direction: column;
-}
-
-div.form-example {
-  display: table-row;
-}
-
-.form-example label, input {
-  display: table-cell;
-  margin-bottom: 10px;
-  font-size: 18px;
-  color:#474b4b
-}
-
-.form-example input{
-  border-radius: 5px;
-  appearance: none;
-  border-style: solid;
-  border-width: thin;
-  border-color: rgb(169, 170, 170);
-}
-
-.checkbox {
-  display: flex;
-  gap: 30px;
-  color: #646868;
-}
-
-.checkbox label{
-  font-size: 16px;
-
-}
-
-
-.register input
-{
+.table-column a{
   border: none;
+  border-radius: 5px;
   padding: 5px 15px;
   color: white;
   background-color: #25566a;
 }
 
 
+/*!
+ registration
+ */
 
-.form-example p{
-  font-size: smaller;
+form.registration {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 18px;
+  color:#474b4b;
+  margin-bottom: 50px;
 }
 
+form.registration > div {
+  display: flex;
+  flex-direction: column;
+}
 
+form.registration .form-check {
+  flex-direction: row;
+  gap: 10px;
+  font-size: smaller;
+}
+.form-check label {
+  font-weight: normal;
+}
+
+form.registration input[type=text], form.registration input[type=email] {
+  border-radius: 5px;
+  appearance: none;
+  border-style: solid;
+  border-width: thin;
+  border-color: rgb(169, 170, 170);
+  padding: 4px 6px;
+}
+
+.register {
+  margin-top: 20px;
+}
+.register input
+{
+  border: none;
+  padding: 5px 15px;
+  color: white;
+  background-color: #25566a;
+  border-radius: 5px;
+  white-space: normal;
+}
+.register input:disabled {
+  cursor: progress;
+  background-color: #9b9b9b;
+}
+.register input.success:disabled {
+  cursor: default;
+  background-color: white;
+  color: #25566a;
+  font-weight: 900;
+}
