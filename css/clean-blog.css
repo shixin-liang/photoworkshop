@@ -552,6 +552,13 @@ form.registration .form-check {
   font-weight: normal;
 }
 
+/*! add this to fix the problem by small chackbox display on cell phone */
+.form-check-input {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 1em;
+}
+
 form.registration input[type=text], form.registration input[type=email] {
   border-radius: 5px;
   appearance: none;
