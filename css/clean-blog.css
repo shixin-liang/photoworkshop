@@ -490,6 +490,17 @@ body {
   pointer-events: none;
 }
 
+.room-info{
+  text-transform: capitalize;
+  font-size: 15px;
+  color: #698292;
+}
+
+.note{
+  font-size: 16px;
+  color: #585858;
+  padding: 12px 0px;
+}
 .coffee-break span{
   background: rgb(225 170 89)!important;
 }
